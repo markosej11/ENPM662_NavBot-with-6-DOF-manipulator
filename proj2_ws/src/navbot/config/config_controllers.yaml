@@ -1,0 +1,74 @@
+# Robot name goes here
+navbot_control:
+  # default controller
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Controller 1
+  controller_rear: 
+    type: effort_controllers/JointVelocityController
+    joint: joint_rear_axle
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+# Controller 2
+  controller_f_l_wheel: 
+    type: position_controllers/JointPositionController
+    joint: joint_front_left_axle
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+# Controller 3
+  controller_f_r_wheel:
+    type: position_controllers/JointPositionController
+    joint: joint_front_right_axle
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+# Controller 4
+  controller_joint_1: 
+    type: position_controllers/JointPositionController
+    joint: joint_1
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+# Controller 5
+  controller_joint_2: 
+    type: position_controllers/JointPositionController
+    joint: joint_2
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+# Controller 6
+  controller_joint_3: 
+    type: position_controllers/JointPositionController
+    joint: joint_3
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+# Controller 7
+  controller_joint_4: 
+    type: position_controllers/JointPositionController
+    joint: joint_4
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+# Controller 8
+  controller_joint_5: 
+    type: position_controllers/JointPositionController
+    joint: joint_5
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+# Controller 9
+  controller_joint_end_effector:
+    type: position_controllers/JointPositionController
+    joint: joint_end_effector
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+# Controller 10
+  controller_f_l_rim: 
+    type: effort_controllers/JointVelocityController
+    joint: joint_front_left_rim
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+# Controller 11
+  controller_f_r_rim: 
+    type: effort_controllers/JointVelocityController
+    joint: joint_front_right_rim
+    pid: {p: 10.0, i: 0.5, d: 0.0}
+
+ 

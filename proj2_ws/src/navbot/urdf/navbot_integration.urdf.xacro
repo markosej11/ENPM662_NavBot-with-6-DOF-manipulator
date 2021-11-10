@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Name your robot here -->
+<robot name ="navbot" xmlns:xacro="http://wiki.ros.org/xacro">
+	<!-- Include Robot's urdf filepath -->
+	<xacro:include filename="$(find navbot)/urdf/navbot.urdf" />
+
+	<!-- Add gazebo plugin for control here -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/navbot_control</robotNamespace>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+			<legacyModeNS>true</legacyModeNS>
+		</plugin>
+	</gazebo>
+</robot>

@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="navbot">
+  <link
+    name="dummy_link">
+  </link>
+  <joint
+    name="dummy_joint"
+    type="fixed">
+    <parent
+      link="dummy_link"/>
+    <child
+      link="base_link"/>
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00574243083162546 5.54009732590054E-09 0.169890254484883"
+        rpy="0 0 0" />
+      <mass
+        value="422.822492059331" />
+      <inertia
+        ixx="9.55044189975523"
+        ixy="-8.55585388996705E-07"
+        ixz="0.740883638540849"
+        iyy="22.1577975837696"
+        iyz="-2.09095170490729E-07"
+        izz="23.9989027352956" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="base_link">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <link
+    name="link_rear_axle">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 0 7.26920691213685E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.536835352645424" />
+      <inertia
+        ixx="0.00813515260567443"
+        ixy="0"
+        ixz="1.55401301601405E-21"
+        iyy="0.00813515260567443"
+        iyz="-9.04327428095806E-21"
+        izz="6.33297955073898E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_rear_axle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_rear_axle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_rear_axle">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <joint
+    name="joint_rear_axle"
+    type="continuous">
+    <origin
+      xyz="-0.215 0 0.05"
+      rpy="-1.5708 -0.40054 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_rear_axle" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="link_rear_left_rim">
+    <inertial>
+      <origin
+        xyz="0.04759900699422 2.77555756156289E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="2.17989779228773" />
+      <inertia
+        ixx="0.00563923087829547"
+        ixy="1.40523402635537E-19"
+        ixz="3.57695924424167E-19"
+        iyy="0.00338250938278668"
+        iyz="1.51788304147971E-18"
+        izz="0.00338250938278667" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_rear_left_rim.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_rear_left_rim.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_rear_left_rim">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <joint
+    name="joint_rear_left_rim"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.1275"
+      rpy="1.3999 1.5708 0" />
+    <parent
+      link="link_rear_axle" />
+    <child
+      link="link_rear_left_rim" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_rear_left_tyre">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 -1.38777878078145E-17 0.03"
+        rpy="0 0 0" />
+      <mass
+        value="0.277425102785401" />
+      <inertia
+        ixx="0.000862580097775627"
+        ixy="-5.42101086242752E-20"
+        ixz="-1.14800709425822E-19"
+        iyy="0.000862580097775628"
+        iyz="6.71629079765894E-21"
+        izz="0.00156439289169361" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_rear_left_tyre.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_rear_left_tyre.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_rear_left_tyre">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <joint
+    name="joint_rear_left_tyre"
+    type="fixed">
+    <origin
+      xyz="0.08 0 0"
+      rpy="-1.5708 -0.15555 1.5708" />
+    <parent
+      link="link_rear_left_rim" />
+    <child
+      link="link_rear_left_tyre" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_rear_right_rim">
+    <inertial>
+      <origin
+        xyz="0.0475990069942199 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="2.17989779228773" />
+      <inertia
+        ixx="0.00563923087829547"
+        ixy="5.18143569753106E-20"
+        ixz="4.02635771702536E-19"
+        iyy="0.00338250938278668"
+        iyz="1.73472347597681E-18"
+        izz="0.00338250938278668" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_rear_right_rim.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_rear_right_rim.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_rear_right_rim">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <joint
+    name="joint_rear_right_rim"
+    type="fixed">
+    <origin
+      xyz="0 0 0.1275"
+      rpy="0.97783 -1.5708 0" />
+    <parent
+      link="link_rear_axle" />
+    <child
+      link="link_rear_right_rim" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_rear_right_tyre">
+    <inertial>
+      <origin
+        xyz="0 2.77555756156289E-17 0.03"
+        rpy="0 0 0" />
+      <mass
+        value="0.277425102785401" />
+      <inertia
+        ixx="0.000862580097775628"
+        ixy="0"
+        ixz="-1.13973500776398E-19"
+        iyy="0.000862580097775628"
+        iyz="-1.53085782332388E-20"
+        izz="0.00156439289169361" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_rear_right_tyre.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_rear_right_tyre.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_rear_right_tyre">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <joint
+    name="joint_rear_right_tyre"
+    type="fixed">
+    <origin
+      xyz="0.02 0 0"
+      rpy="-1.5708 0.074591 -1.5708" />
+    <parent
+      link="link_rear_right_rim" />
+    <child
+      link="link_rear_right_tyre" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_front_left_axle">
+    <inertial>
+      <origin
+        xyz="1.10891879540054E-07 0.125024005469989 -0.0107604411422391"
+        rpy="0 0 0" />
+      <mass
+        value="0.49495776580367" />
+      <inertia
+        ixx="0.0039900101683786"
+        ixy="-1.2390557473812E-10"
+        ixz="-4.2801510396367E-11"
+        iyy="0.000358959536469292"
+        iyz="-0.000559352144239239"
+        izz="0.00372216577421488" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_left_axle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_left_axle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_front_left_axle">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <joint
+    name="joint_front_left_axle"
+    type="continuous">
+    <origin
+      xyz="0.215 0.12 0.03"
+      rpy="1.5708 0 -0.052539" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_front_left_axle" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="link_front_left_rim">
+    <inertial>
+      <origin
+        xyz="0.04759900699422 -5.55111512312578E-17 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="2.17989779228773" />
+      <inertia
+        ixx="0.00563923087829547"
+        ixy="4.87890977618477E-19"
+        ixz="-4.06575814682064E-20"
+        iyy="0.00338250938278667"
+        iyz="9.2877162666434E-19"
+        izz="0.00338250938278668" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_left_rim.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_left_rim.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_front_left_rim">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <joint
+    name="joint_front_left_rim"
+    type="continuous">
+    <origin
+      xyz="0 0.02 -0.0075"
+      rpy="0 1.5708 2.6779" />
+    <parent
+      link="link_front_left_axle" />
+    <child
+      link="link_front_left_rim" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="link_front_left_tyre">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 -2.77555756156289E-17 0.03"
+        rpy="0 0 0" />
+      <mass
+        value="0.277425102785401" />
+      <inertia
+        ixx="0.000862580097775627"
+        ixy="9.01031297641762E-20"
+        ixz="8.94466792300541E-19"
+        iyy="0.000862580097775627"
+        iyz="-8.48727013148809E-19"
+        izz="0.00156439289169361" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_left_tyre.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_left_tyre.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_front_left_tyre">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <joint
+    name="joint_front_left_tyre"
+    type="fixed">
+    <origin
+      xyz="0.08 0 0"
+      rpy="-1.5708 -1.2338 1.5708" />
+    <parent
+      link="link_front_left_rim" />
+    <child
+      link="link_front_left_tyre" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_front_right_axle">
+    <inertial>
+      <origin
+        xyz="2.59269704983023E-07 0.125024021675921 -0.010760430046453"
+        rpy="0 0 0" />
+      <mass
+        value="0.494957686734281" />
+      <inertia
+        ixx="0.00399001010542706"
+        ixy="2.58863452849418E-10"
+        ixz="5.00785754858001E-11"
+        iyy="0.000358959532065348"
+        iyz="-0.000559352107853414"
+        izz="0.00372216571421861" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_right_axle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_right_axle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_front_right_axle">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <joint
+    name="joint_front_right_axle"
+    type="continuous">
+    <origin
+      xyz="0.215 -0.12 0.03"
+      rpy="1.5708 0 -3.1269" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_front_right_axle" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="link_front_right_rim">
+    <inertial>
+      <origin
+        xyz="0.04759900699422 -5.55111512312578E-17 8.32667268468867E-17"
+        rpy="0 0 0" />
+      <mass
+        value="2.17989779228773" />
+      <inertia
+        ixx="0.00563923087829547"
+        ixy="-8.77526133355455E-19"
+        ixz="2.92056960213283E-18"
+        iyy="0.00338250938278667"
+        iyz="4.84396966711053E-20"
+        izz="0.00338250938278668" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_right_rim.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_right_rim.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_front_right_rim">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <joint
+    name="joint_front_right_rim"
+    type="continuous">
+    <origin
+      xyz="0 0.02 -0.00749999999999999"
+      rpy="0.400955617368748 1.5707963267949 0" />
+    <parent
+      link="link_front_right_axle" />
+    <child
+      link="link_front_right_rim" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="link_front_right_tyre">
+    <inertial>
+      <origin
+        xyz="0 -2.77555756156289E-17 0.03"
+        rpy="0 0 0" />
+      <mass
+        value="0.277425102785402" />
+      <inertia
+        ixx="0.00086258009777563"
+        ixy="5.50670677388802E-20"
+        ixz="-6.70850094225406E-19"
+        iyy="0.00086258009777563"
+        iyz="-4.39186583151355E-19"
+        izz="0.00156439289169361" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_right_tyre.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_front_right_tyre.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_front_right_tyre">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <joint
+    name="joint_front_right_tyre"
+    type="fixed">
+    <origin
+      xyz="0.02 0 0"
+      rpy="1.5707963267949 0.844055022272718 1.5707963267949" />
+    <parent
+      link="link_front_right_rim" />
+    <child
+      link="link_front_right_tyre" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_1">
+    <inertial>
+      <origin
+        xyz="8.23467233947929E-19 0.0993386761017062 -1.69688700924841E-19"
+        rpy="0 0 0" />
+      <mass
+        value="9.1390811190568" />
+      <inertia
+        ixx="0.0487965981021645"
+        ixy="-1.27348713913367E-18"
+        ixz="1.1069427670884E-19"
+        iyy="0.0258204077918584"
+        iyz="-1.18619606999968E-18"
+        izz="0.0498938056035688" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_1">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+  <joint
+    name="joint_1"
+    type="continuous">
+    <origin
+      xyz="0 0 0.2"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_1" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="link_2">
+    <inertial>
+      <origin
+        xyz="4.21468486042182E-09 0.200000000000001 4.49816509197686E-17"
+        rpy="0 0 0" />
+      <mass
+        value="2.18604420889339" />
+      <inertia
+        ixx="0.0443530457701329"
+        ixy="-7.56860847114201E-10"
+        ixz="-5.47156987570897E-20"
+        iyy="0.00843762732486857"
+        iyz="-4.50781791324572E-18"
+        izz="0.0507209956806042" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_2">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+  <joint
+    name="joint_2"
+    type="continuous">
+    <origin
+      xyz="0 0.28 0"
+      rpy="-3.1416 0 3.1416" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_2" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="link_3">
+    <inertial>
+      <origin
+        xyz="-5.68294713632741E-17 -0.2 -6.66133814775094E-16"
+        rpy="0 0 0" />
+      <mass
+        value="2.15990440461139" />
+      <inertia
+        ixx="0.0356257266086387"
+        ixy="-2.09248611707827E-17"
+        ixz="2.3123943074961E-17"
+        iyy="0.00619436542699183"
+        iyz="2.81764908551687E-18"
+        izz="0.0395540816114473" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_3">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+  <joint
+    name="joint_3"
+    type="continuous">
+    <origin
+      xyz="0 0.4 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="link_2" />
+    <child
+      link="link_3" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="link_4">
+    <inertial>
+      <origin
+        xyz="-5.91118618588781E-15 -0.17623526729091 9.99200722162641E-16"
+        rpy="0 0 0" />
+      <mass
+        value="2.5633930873931" />
+      <inertia
+        ixx="0.0324934459369349"
+        ixy="4.1372114099417E-17"
+        ixz="2.43119914274586E-17"
+        iyy="0.00730600107061401"
+        iyz="-4.17674835796458E-17"
+        izz="0.035293174970927" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_4">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+  <joint
+    name="joint_4"
+    type="continuous">
+    <origin
+      xyz="0 -0.4 0"
+      rpy="0 0 0" />
+    <parent
+      link="link_3" />
+    <child
+      link="link_4" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="link_5">
+    <inertial>
+      <origin
+        xyz="-3.47105544721201E-08 0.0235907129380932 -6.89973345124884E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.741865788464824" />
+      <inertia
+        ixx="0.00106142107943006"
+        ixy="-4.44545174493104E-10"
+        ixz="1.64486245796405E-10"
+        iyy="0.000356591742403898"
+        iyz="-4.49525952452804E-10"
+        izz="0.00107482191696341" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_5">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+  <joint
+    name="joint_5"
+    type="continuous">
+    <origin
+      xyz="0 -0.345 0"
+      rpy="0 0 -3.14159" />
+    <parent
+      link="link_4" />
+    <child
+      link="link_5" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="link_end_effector">
+    <inertial>
+      <origin
+        xyz="1.11022302462516E-15 0.0372 -5.44009282066327E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.238564692131974" />
+      <inertia
+        ixx="0.000169155686583547"
+        ixy="7.6598960407846E-21"
+        ixz="0"
+        iyy="6.46808521542814E-05"
+        iyz="-1.04339855432807E-20"
+        izz="0.000169155686583547" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_end_effector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://navbot/meshes/link_end_effector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="link_end_effector">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <joint
+    name="joint_end_effector"
+    type="continuous">
+    <origin
+      xyz="0 0.048 0"
+      rpy="0 -1.355 0" />
+    <parent
+      link="link_5" />
+    <child
+      link="link_end_effector" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <transmission name="trans1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_rear_axle">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Engine">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_front_left_axle">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="F_L_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_front_right_axle">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="F_R_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="joint_1_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="joint_2_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="joint_3_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_4">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="joint_4_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+    <transmission name="trans8">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_5">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="joint_5_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans9">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_end_effector">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="end_effector_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans10">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_front_left_rim">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Engine1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans11">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_front_right_rim">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Engine2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

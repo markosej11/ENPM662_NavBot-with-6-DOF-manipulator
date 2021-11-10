@@ -1,0 +1,79 @@
+<launch>
+    <!--Arguments-->
+    <arg name="xi" default="0.0" doc="Initial x position of the robot"/>
+    <arg name="yi" default="0.0" doc="Initial y position of the robot"/>
+    <arg name="ri" default="0.0" doc="Initial orientation of the robot"/>
+    <arg name="mode" default="teleop" doc="One of &quot;teleop&quot;, &quot;plan&quot;, or &quot;cube&quot;"/>
+    <arg name="pi" value="3.141592653"/>  <!--Translate degrees to radians-->
+    <arg name="ari" value="$(eval arg('pi') * arg('ri') / 180.0)"/>  <!--Translate degrees to radians-->
+    <arg name="xi2" value="$(eval 7.00 if (arg('mode') == 'cube') else arg('xi'))"/>  <!--x-coordinate when starting the cube simulation-->
+    <arg name="yi2" value="$(eval 6.10 if (arg('mode') == 'cube') else arg('yi'))"/>  <!--y-coordinate when starting the cube simulation-->
+    <arg name="ri2" value="$(eval (arg('pi')/2.0) if (arg('mode') == 'cube') else arg('ari'))"/>  <!--orientation when starting the cube simulation-->
+
+    <!--World-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+        <arg name="world_name" value="$(find navbot)/world/world_final.world"/>
+    </include>
+
+    <!--Parameters-->
+    <param name="robot_description"
+           command="$(find xacro)/xacro --inorder $(find navbot)/urdf/navbot_integration.urdf.xacro hardware_interface:=EffortJointInterface use_effort_interface:=true"/>
+    <param name="NavBot" value="navbot"/>  <!-- Name of robot goes in the value tag -->
+    <rosparam file="$(find navbot)/config/config_controllers.yaml" command="load"/>
+
+    <!--Generate controllers-->
+    <node name="controller_spawner"
+    pkg="controller_manager"
+    type="spawner"
+    respawn="true"
+    output="screen"
+    ns="/navbot_control"
+    args="controller_rear controller_f_l_wheel controller_f_r_wheel controller_joint_1 controller_joint_2 controller_joint_3 controller_joint_4 controller_joint_5 controller_joint_end_effector controller_f_l_rim controller_f_r_rim" />
+
+    <!--Robot state publisher-->
+    <node name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher"
+    respawn="false"
+    output="screen"/>
+
+    <!--Joint state publisher-->
+    <node name="joint_state_publisher"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher">
+        <param name="use_gui" value="false"/>
+    </node>
+
+    <!--Static transform publisher-->
+    <node pkg="tf"
+    type="static_transform_publisher"
+    name="map_to_base"
+    args="1 0 0 0 0 0 1 /map /dummy_link 10" />
+
+    <!--Robot spawner-->
+    <node name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-param robot_description -urdf -model NavBot -x $(arg xi2) -y $(arg yi2) -z 0.0 -R 0.0 -P 0.0 -Y $(arg ri2)"
+    output="screen" />
+
+    <!--Fake joint calibration-->
+    <node name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+    <!--Controller node (for demonstration)-->
+	<node name="navbot_node"
+    pkg="navbot"
+    type="demo.py"
+    args="$(arg xi2) $(arg yi2) $(arg ri2) $(arg mode)"
+    output="screen"
+    required="true"/>
+
+    <!--RViz node-->
+	<node name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find navbot)/config/config_file.rviz" />
+</launch>
